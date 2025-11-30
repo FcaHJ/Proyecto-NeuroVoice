@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -31,7 +32,8 @@ export const routes: Routes = [
   },
   {
     path: 'daily-stats',
-    loadComponent: () => import('./pages/daily-stats/daily-stats.page').then( m => m.DailyStatsPage)
+    loadComponent: () => import('./pages/daily-stats/daily-stats.page').then(m => m.DailyStatsPage),
+    canActivate: [AuthGuard]
   }
 
 
